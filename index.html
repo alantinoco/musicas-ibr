@@ -33,7 +33,7 @@
         tbody.innerHTML = `<tr><td colspan="4" class="empty">${songs.length ? 'Nenhuma música encontrada. Tente outro nome ou trecho da letra.' : 'O repertório ainda não foi publicado. Adicione a planilha data/musicas.xlsx ao projeto e publique novamente.'}</td></tr>`;
         return;
       }
-      tbody.innerHTML = shown.map(s => `<tr><td class="id-cell">${safeUrl(s.chords) ? `<a class="id-link" href="${esc(s.chords)}" target="_blank" rel="noopener">${esc(s.id || '—')}</a>` : esc(s.id || '—')}</td><td><a class="song-link" href="${esc(s.page)}">${esc(s.title)}</a></td><td>${safeUrl(s.chords) ? `<a class="text-link" href="${esc(s.chords)}" target="_blank" rel="noopener">Ver cifra <span>↗</span></a>` : '<span class="muted">—</span>'}</td><td>${safeUrl(s.media) ? `<a class="text-link" href="${esc(s.media)}" target="_blank" rel="noopener">Ouvir/assistir <span>↗</span></a>` : '<span class="muted">—</span>'}</td></tr>`).join('');
+      tbody.innerHTML = shown.map(s => `<tr><td class="id-cell">${esc(s.id || '—')}</td><td><a class="song-link" href="${esc(s.page)}">${esc(s.title)}</a></td><td>${safeUrl(s.chords) ? `<a class="text-link" href="${esc(s.chords)}" target="_blank" rel="noopener">Ver cifra <span>↗</span></a>` : '<span class="muted">—</span>'}</td><td>${safeUrl(s.media) ? `<a class="text-link" href="${esc(s.media)}" target="_blank" rel="noopener">Ouvir/assistir <span>↗</span></a>` : '<span class="muted">—</span>'}</td></tr>`).join('');
     }
     render();
     search.addEventListener('input', render);
